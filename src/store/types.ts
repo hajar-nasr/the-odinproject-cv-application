@@ -36,11 +36,12 @@ export interface State {
 
 export enum ACTIONS_TYPES {
   EDIT_PROFILE = "EDIT_PROFILE",
+  EDIT_SUMMARY = "EDIT_SUMMARY",
 }
 
 export interface Action {
   type: ACTIONS_TYPES;
-  payload: Profile;
+  payload: string | Profile;
 }
 
 export interface CVStateContextType {

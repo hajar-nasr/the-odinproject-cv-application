@@ -1,4 +1,6 @@
 import ProfileForm from "../components/action-sections/ProfileForm";
+import SummaryForm from "../components/action-sections/SummaryForm";
+
 import "../styles/sidebar.css";
 
 const ActionsSidebar = () => {
@@ -7,6 +9,7 @@ const ActionsSidebar = () => {
       <div className="sidebar">
         <nav className="sidebar-nav">
           <ProfileForm />
+          <SummaryForm />
         </nav>
       </div>
     </div>
