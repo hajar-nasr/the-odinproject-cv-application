@@ -1,0 +1,14 @@
+.sidebar {
+    padding: 56px 24px 24px 24px;
+    width: 20vw;
+    height: 100dvh;
+    max-height: 100dvh;
+}
+
+.sidebar-icon {
+    position:fixed;
+    left: 24px;
+    z-index: 1000;
+    bottom: 32px;
+}
+

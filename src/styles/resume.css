@@ -1,0 +1,15 @@
+.resume {
+    max-width: 1200px;
+    margin: auto;
+    padding: 24px 16px;
+    margin-top: 24px;
+}
+
+.profile {
+    text-align: center;
+}
+
+.name {
+    font-size: 32px;
+    padding-bottom: 8px;
+}
