@@ -9,29 +9,41 @@ export interface Summary {
   content: string;
 }
 
-export interface Education {
-  school: string;
-  degree: string;
-  fieldOfStudy: string;
-  startYear: string;
-  endYear: string;
-}
-
-export interface Experience {
+export type ExperienceItem = {
+  id: string;
   title: string;
   company: string;
   location: string;
   startYear: string;
   endYear: string;
   description: string;
+};
+
+export interface Experience {
+  title: string;
+  items: ExperienceItem[];
+}
+
+export type EducationItem = {
+  id: string;
+  school: string;
+  degree: string;
+  fieldOfStudy: string;
+  startYear: string;
+  endYear: string;
+};
+
+export interface Education {
+  title: string;
+  items: EducationItem[];
 }
 
 export interface State {
   profile: Profile;
   summary: Summary;
-  education: Education[];
-  experience: Experience[];
+  experiences: Experience;
   skills: string[];
+  education: Education;
 }
 
 export enum ACTIONS_TYPES {
