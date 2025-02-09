@@ -1,9 +1,15 @@
+:root{
+    --primary-color: #251C93;
+    --secondary-color: #F5F5FF;  
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     border: none;
     font-family: Inter, sans-serif;
+    font-size: 1rem;
 }
 
 a {
@@ -40,8 +46,8 @@ button, a {
 }
 
 .transformed {
-    transform: translateX(-20vw);
-    width: calc(100vw + 20vw);
+    transform: translateX(-25vw);
+    width: calc(100vw + 25vw);
 }
 
 .content {

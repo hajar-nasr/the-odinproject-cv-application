@@ -1,8 +1,11 @@
 .resume {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: auto;
     padding: 24px 16px;
     margin-top: 24px;
+    background-color: white;
+    border: 0.5px solid #F5F5FF; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); 
 }
 
 .profile {

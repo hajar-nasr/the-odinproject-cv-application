@@ -1,6 +1,7 @@
 import { useCVContext } from "../../store/hooks";
 import { ACTIONS_TYPES, Profile } from "../../store/types";
 import { ChangeEvent, FormEvent, useState } from "react";
+import FormContainer from "./FormContainer";
 
 const FORM_DATA = [
   {
@@ -17,7 +18,7 @@ const FORM_DATA = [
   },
   {
     name: "linkedIn",
-    placeholder: "example@youremail.com",
+    placeholder: "https://linkedin.com/in/account",
     type: "text",
     label: "LinkedIn Link",
   },
@@ -32,7 +33,7 @@ const ProfileForm = () => {
   });
 
   const isSumbitEnabled = () => {
-    return profile.email && profile.name && profile.linkedIn;
+    return Boolean(profile.email && profile.name && profile.linkedIn);
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -54,30 +55,27 @@ const ProfileForm = () => {
   };
 
   return (
-    <div>
-      <p>Edit Profile</p>
-
-      <form onSubmit={handleSubmit}>
-        <div>
-          {FORM_DATA.map((item) => {
-            return (
-              <label key={item.name}>
-                <span>{item.label}</span>
-                <input
-                  {...item}
-                  onChange={handleChange}
-                  value={profile[item.name as keyof Profile]}
-                />
-              </label>
-            );
-          })}
-        </div>
-
-        <button type="submit" disabled={!isSumbitEnabled()}>
-          Edit
-        </button>
-      </form>
-    </div>
+    <FormContainer
+      title="Edit Profile"
+      onSubmit={handleSubmit}
+      isSumbitEnabled={isSumbitEnabled()}
+    >
+      <div>
+        {FORM_DATA.map((item) => {
+          return (
+            <label key={item.name} className="form-label">
+              <span>{item.label}</span>
+              <input
+                {...item}
+                onChange={handleChange}
+                value={profile[item.name as keyof Profile]}
+                className="form-input"
+              />
+            </label>
+          );
+        })}
+      </div>
+    </FormContainer>
   );
 };
 

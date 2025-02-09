@@ -1,10 +1,10 @@
 import { FormEvent, useState } from "react";
 import { useCVContext } from "../../store/hooks";
 import { ACTIONS_TYPES } from "../../store/types";
+import FormContainer from "./FormContainer";
 
 const SummaryForm = () => {
   const { dispatch } = useCVContext()!;
-
   const [summary, setSummary] = useState<string>("");
 
   const handleSubmit = (e: FormEvent) => {
@@ -17,21 +17,24 @@ const SummaryForm = () => {
   };
 
   return (
-    <div>
-      <p>Edit Summary</p>
-      <form onSubmit={handleSubmit}>
+    <FormContainer
+      title="Edit Summary"
+      onSubmit={handleSubmit}
+      isSumbitEnabled={!!summary}
+    >
+      <label className="form-label">
+        <span>Summary</span>
         <textarea
           onChange={(e) => {
             setSummary(e.target.value);
           }}
-          placeholder="Enter Summary"
+          placeholder="Summarize your professional experience and key skills"
           value={summary}
+          rows={5}
+          className="form-input"
         ></textarea>
-        <button type="submit" disabled={!summary}>
-          Edit
-        </button>
-      </form>
-    </div>
+      </label>
+    </FormContainer>
   );
 };
 
