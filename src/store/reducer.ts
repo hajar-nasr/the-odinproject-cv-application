@@ -1,4 +1,4 @@
-import { ACTIONS_TYPES, State, Action, Profile } from "./types";
+import { ACTIONS_TYPES, State, Action, Profile, EducationItem } from "./types";
 
 const reducer = (state: State, action: Action): State => {
   switch (action.type) {
@@ -7,7 +7,7 @@ const reducer = (state: State, action: Action): State => {
         ...state,
         profile: action.payload as Profile,
       };
-    case ACTIONS_TYPES.EDIT_SUMMARY: {
+    case ACTIONS_TYPES.EDIT_SUMMARY:
       return {
         ...state,
         summary: {
@@ -15,7 +15,13 @@ const reducer = (state: State, action: Action): State => {
           content: action.payload as string,
         },
       };
-    }
+    case ACTIONS_TYPES.EDIT_EDUCATION:
+      return {
+        ...state,
+        education: {
+          items: [...state.education.items, action.payload as EducationItem],
+        },
+      };
     default:
       return state;
   }

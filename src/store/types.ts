@@ -20,7 +20,6 @@ export type ExperienceItem = {
 };
 
 export interface Experience {
-  title: string;
   items: ExperienceItem[];
 }
 
@@ -29,19 +28,17 @@ export type EducationItem = {
   school: string;
   degree: string;
   fieldOfStudy: string;
-  startYear: string;
-  endYear: string;
+  graduationYear: string;
 };
 
 export interface Education {
-  title: string;
   items: EducationItem[];
 }
 
 export interface State {
   profile: Profile;
   summary: Summary;
-  experiences: Experience;
+  experience: Experience;
   skills: string[];
   education: Education;
 }
@@ -49,11 +46,12 @@ export interface State {
 export enum ACTIONS_TYPES {
   EDIT_PROFILE = "EDIT_PROFILE",
   EDIT_SUMMARY = "EDIT_SUMMARY",
+  EDIT_EDUCATION = "EDIT_EDUCATION",
 }
 
 export interface Action {
   type: ACTIONS_TYPES;
-  payload: string | Profile;
+  payload: string | Profile | EducationItem;
 }
 
 export interface CVStateContextType {
