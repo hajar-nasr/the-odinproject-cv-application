@@ -1,6 +1,10 @@
-import { FormEvent, useState, ChangeEvent, useId } from "react";
+import { FormEvent, ChangeEvent, useId } from "react";
 import { useCVContext } from "../../store/hooks";
-import { ACTIONS_TYPES, EducationItem } from "../../store/types";
+import {
+  ACTIONS_TYPES,
+  EducationItem,
+  SidebarFormChangeEventProps,
+} from "../../store/types";
 import FormContainer from "./FormContainer";
 
 const FORM_DATA = [
@@ -30,15 +34,15 @@ const FORM_DATA = [
   },
 ];
 
-const EducationForm = () => {
+const EducationForm = ({
+  education,
+  handleChange,
+}: {
+  education: EducationItem;
+  handleChange: ({ event, sidebarFormId }: SidebarFormChangeEventProps) => void;
+}) => {
   const { dispatch } = useCVContext()!;
-  const [education, setEducation] = useState<EducationItem>({
-    id: useId(),
-    school: "",
-    degree: "",
-    fieldOfStudy: "",
-    graduationYear: "",
-  });
+  const educationId = useId();
 
   const isSumbitEnabled = () => {
     return Boolean(
@@ -49,21 +53,15 @@ const EducationForm = () => {
     );
   };
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-
-    setEducation((prevEducation) => ({
-      ...prevEducation,
-      [name]: value,
-    }));
-  };
-
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
     dispatch({
       type: ACTIONS_TYPES.EDIT_EDUCATION,
-      payload: education,
+      payload: {
+        ...education,
+        id: educationId,
+      },
     });
   };
 
@@ -83,7 +81,12 @@ const EducationForm = () => {
                 name={item.name}
                 placeholder={item.placeholder}
                 value={education[item.name as keyof EducationItem]}
-                onChange={handleChange}
+                onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                  handleChange({
+                    event,
+                    sidebarFormId: "education",
+                  });
+                }}
                 className="form-input"
               />
             </label>

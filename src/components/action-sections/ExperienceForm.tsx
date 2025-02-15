@@ -1,6 +1,10 @@
 import { FormEvent, useState, ChangeEvent, useId } from "react";
 import { useCVContext } from "../../store/hooks";
-import { ACTIONS_TYPES, ExperienceItem } from "../../store/types";
+import {
+  ACTIONS_TYPES,
+  ExperienceItem,
+  SidebarFormChangeEventProps,
+} from "../../store/types";
 import FormContainer from "./FormContainer";
 
 const FORM_DATA = [
@@ -41,19 +45,16 @@ const FORM_DATA = [
   },
 ];
 
-const ExperienceForm = () => {
+const ExperienceForm = ({
+  experience,
+  handleChange,
+}: {
+  experience: ExperienceItem;
+  handleChange: ({ event, sidebarFormId }: SidebarFormChangeEventProps) => void;
+}) => {
   const { dispatch } = useCVContext()!;
-  const [experience, setExperience] = useState<ExperienceItem>({
-    id: useId(),
-    title: "",
-    company: "",
-    location: "",
-    startDate: "",
-    endDate: "",
-    description: "",
-  });
-
   const [isPresent, setIsPresent] = useState(false);
+  const experienceId = useId();
 
   const isSumbitEnabled = () => {
     return Boolean(
@@ -61,21 +62,12 @@ const ExperienceForm = () => {
     );
   };
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-
-    setExperience((prevExperience) => ({
-      ...prevExperience,
-      [name]: value,
-    }));
-  };
-
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
     dispatch({
       type: ACTIONS_TYPES.EDIT_EXPERIENCE,
-      payload: experience,
+      payload: { ...experience, id: experienceId },
     });
   };
 
@@ -97,7 +89,12 @@ const ExperienceForm = () => {
                 name={item.name}
                 placeholder={item.placeholder}
                 value={experience[item.name as keyof ExperienceItem]}
-                onChange={handleChange}
+                onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                  handleChange({
+                    event,
+                    sidebarFormId: "experience",
+                  });
+                }}
                 className="form-input"
               />
             </label>

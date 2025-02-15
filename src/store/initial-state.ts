@@ -1,4 +1,4 @@
-import { State } from "./types";
+import { State, SidebarFormsState } from "./types";
 
 const initalState: State = {
   profile: {
@@ -39,6 +39,32 @@ create meaningful impact.`,
       },
     ],
   },
+};
+
+export const formsEmptyState: SidebarFormsState = {
+  education: {
+    id: "",
+    school: "",
+    degree: "",
+    fieldOfStudy: "",
+    graduationYear: "",
+  },
+  experience: {
+    id: "",
+    title: "",
+    company: "",
+    location: "",
+    startDate: "",
+    endDate: "",
+    description: "",
+  },
+  profile: {
+    name: "",
+    email: "",
+    linkedIn: "",
+  },
+  summary: "",
+  skills: [],
 };
 
 export default initalState;

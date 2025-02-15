@@ -1,3 +1,5 @@
+import { ChangeEvent } from "react";
+
 export interface Profile {
   name: string;
   email: string;
@@ -42,6 +44,21 @@ export interface State {
   skills: string[];
   education: Education;
 }
+
+export interface SidebarFormsState {
+  experience: ExperienceItem;
+  education: EducationItem;
+  profile: Profile;
+  summary: string;
+  skills: string[];
+}
+
+export type SidebarFormId = keyof SidebarFormsState;
+
+export type SidebarFormChangeEventProps = {
+  event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
+  sidebarFormId: SidebarFormId;
+};
 
 export enum ACTIONS_TYPES {
   EDIT_PROFILE = "EDIT_PROFILE",

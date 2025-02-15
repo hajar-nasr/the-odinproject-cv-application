@@ -1,6 +1,10 @@
+import { FormEvent, ChangeEvent } from "react";
 import { useCVContext } from "../../store/hooks";
-import { ACTIONS_TYPES, Profile } from "../../store/types";
-import { ChangeEvent, FormEvent, useState } from "react";
+import {
+  ACTIONS_TYPES,
+  Profile,
+  SidebarFormChangeEventProps,
+} from "../../store/types";
 import FormContainer from "./FormContainer";
 
 const FORM_DATA = [
@@ -24,25 +28,17 @@ const FORM_DATA = [
   },
 ];
 
-const ProfileForm = () => {
+const ProfileForm = ({
+  profile,
+  handleChange,
+}: {
+  profile: Profile;
+  handleChange: ({ event, sidebarFormId }: SidebarFormChangeEventProps) => void;
+}) => {
   const { dispatch } = useCVContext()!;
-  const [profile, setProfile] = useState<Profile>({
-    name: "",
-    email: "",
-    linkedIn: "",
-  });
 
   const isSumbitEnabled = () => {
     return Boolean(profile.email && profile.name && profile.linkedIn);
-  };
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-
-    setProfile((prevProfile) => ({
-      ...prevProfile,
-      [name]: value,
-    }));
   };
 
   const handleSubmit = (e: FormEvent) => {
@@ -67,7 +63,12 @@ const ProfileForm = () => {
               <span>{item.label}</span>
               <input
                 {...item}
-                onChange={handleChange}
+                onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                  handleChange({
+                    event,
+                    sidebarFormId: "profile",
+                  });
+                }}
                 value={profile[item.name as keyof Profile]}
                 className="form-input"
               />

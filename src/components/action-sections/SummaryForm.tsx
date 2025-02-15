@@ -1,11 +1,16 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, ChangeEvent } from "react";
 import { useCVContext } from "../../store/hooks";
-import { ACTIONS_TYPES } from "../../store/types";
+import { ACTIONS_TYPES, SidebarFormChangeEventProps } from "../../store/types";
 import FormContainer from "./FormContainer";
 
-const SummaryForm = () => {
+const SummaryForm = ({
+  summary,
+  handleChange,
+}: {
+  summary: string;
+  handleChange: ({ event, sidebarFormId }: SidebarFormChangeEventProps) => void;
+}) => {
   const { dispatch } = useCVContext()!;
-  const [summary, setSummary] = useState<string>("");
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -25,13 +30,17 @@ const SummaryForm = () => {
       <label className="form-label">
         <span>Summary</span>
         <textarea
-          onChange={(e) => {
-            setSummary(e.target.value);
+          onChange={(event: ChangeEvent<HTMLTextAreaElement>) => {
+            handleChange({
+              event,
+              sidebarFormId: "summary",
+            });
           }}
           placeholder="Summarize your professional experience and key skills"
           value={summary}
           rows={5}
           className="form-input"
+          name="summary"
         ></textarea>
       </label>
     </FormContainer>
