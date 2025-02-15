@@ -14,8 +14,8 @@ export type ExperienceItem = {
   title: string;
   company: string;
   location: string;
-  startYear: string;
-  endYear: string;
+  startDate: string;
+  endDate: string;
   description: string;
 };
 
@@ -47,11 +47,12 @@ export enum ACTIONS_TYPES {
   EDIT_PROFILE = "EDIT_PROFILE",
   EDIT_SUMMARY = "EDIT_SUMMARY",
   EDIT_EDUCATION = "EDIT_EDUCATION",
+  EDIT_EXPERIENCE = "EDIT_EXPERIENCE",
 }
 
 export interface Action {
   type: ACTIONS_TYPES;
-  payload: string | Profile | EducationItem;
+  payload: string | Profile | EducationItem | ExperienceItem;
 }
 
 export interface CVStateContextType {

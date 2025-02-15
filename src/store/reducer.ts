@@ -1,4 +1,11 @@
-import { ACTIONS_TYPES, State, Action, Profile, EducationItem } from "./types";
+import {
+  ACTIONS_TYPES,
+  State,
+  Action,
+  Profile,
+  EducationItem,
+  ExperienceItem,
+} from "./types";
 
 const reducer = (state: State, action: Action): State => {
   switch (action.type) {
@@ -20,6 +27,13 @@ const reducer = (state: State, action: Action): State => {
         ...state,
         education: {
           items: [...state.education.items, action.payload as EducationItem],
+        },
+      };
+    case ACTIONS_TYPES.EDIT_EXPERIENCE:
+      return {
+        ...state,
+        experience: {
+          items: [...state.experience.items, action.payload as ExperienceItem],
         },
       };
     default:

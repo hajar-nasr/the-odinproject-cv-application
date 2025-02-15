@@ -17,10 +17,10 @@
 .form-section {
     padding: 12px;
     margin-bottom: 12px;
+    border: 1px solid #ddd;
 }
 
 .form, .form-section {
-    border: 1px solid #ddd;
     border-radius: 12px;
 }
 

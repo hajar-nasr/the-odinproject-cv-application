@@ -17,11 +17,11 @@ create meaningful impact.`,
   experience: {
     items: [
       {
-        title: "",
-        company: "",
-        location: "",
-        startYear: "",
-        endYear: "",
+        title: "Web Developer",
+        company: "Fabulous",
+        location: "Remote",
+        startDate: "2021",
+        endDate: "",
         description: "",
         id: "exp_1",
       },
