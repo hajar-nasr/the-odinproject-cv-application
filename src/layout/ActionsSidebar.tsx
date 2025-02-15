@@ -40,9 +40,10 @@ const ActionsSidebar = () => {
 
   return (
     <div>
-      <button onClick={resetAll}>Reset</button>
-
       <div className="sidebar">
+        <button onClick={resetAll} className="reset-forms-btn">
+          Reset Forms
+        </button>
         <nav className="sidebar-nav">
           <ProfileForm
             profile={formsState.profile}

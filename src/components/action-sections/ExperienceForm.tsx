@@ -100,12 +100,16 @@ const ExperienceForm = ({
             </label>
           );
         })}
-        <label
-          onClick={() => {
-            setIsPresent((prev) => !prev);
-          }}
-        >
-          <input type="checkbox" checked={isPresent} onChange={() => {}} />
+        <label className="form-checkbox">
+          <input
+            type="checkbox"
+            checked={isPresent}
+            onChange={(e) => {
+              setIsPresent(e.target.checked);
+            }}
+            style={{ position: "absolute", opacity: 0, height: 0, width: 0 }}
+          />
+          <span className="custom-checkbox"></span>
           <span>I'm currently working in this role</span>
         </label>
       </div>
