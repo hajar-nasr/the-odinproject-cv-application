@@ -4,8 +4,8 @@
     padding: 24px 16px;
     margin-top: 24px;
     background-color: white;
-    border: 0.5px solid #F5F5FF; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); 
+    border: 0.5px solid #F5F5FF;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     color: darkslategray;
     padding: 48px 24px;
 }
@@ -25,14 +25,14 @@
 }
 
 .section-title::after {
-   content: '';
-   position: absolute;
-   height: 6px;
-   width: 9px;
-   background-color: gray;
-   left: 0;
-   bottom: -2px;
-   border-radius: 2px;
+    content: '';
+    position: absolute;
+    height: 6px;
+    width: 9px;
+    background-color: gray;
+    left: 0;
+    bottom: -2px;
+    border-radius: 2px;
 }
 
 .profile {
@@ -69,9 +69,16 @@
     color: gray;
 }
 
-.education, .experiences  {
+.education,
+.experiences {
     display: flex;
     flex-direction: column;
     gap: 18px;
     margin-top: 16px;
+}
+
+@media (max-width: 1100px) {
+    .resume {
+        padding: 32px 16px;
+    }
 }

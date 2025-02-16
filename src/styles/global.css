@@ -1,6 +1,6 @@
-:root{
+:root {
     --primary-color: #251C93;
-    --secondary-color: #F5F5FF;  
+    --secondary-color: #F5F5FF;
 }
 
 * {
@@ -16,7 +16,8 @@ a {
     text-decoration: none;
 }
 
-button, a {
+button,
+a {
     cursor: pointer;
 }
 
@@ -58,4 +59,11 @@ button, a {
 
 .content {
     width: 100%;
+}
+
+@media (max-width: 1100px) {
+    .transformed {
+        transform: translateX(-100vw);
+        width: calc(100vw + 100vw);
+    }
 }

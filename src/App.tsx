@@ -14,7 +14,7 @@ const App = () => {
   return (
     <>
       <button className="sidebar-icon" onClick={handleClick}>
-        Open Sidebar
+        {isOpen ? "Close" : "Open"} Sidebar
       </button>
 
       <div className={classNames("main-container", { transformed: !isOpen })}>
