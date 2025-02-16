@@ -7,7 +7,6 @@ export interface Profile {
 }
 
 export interface Summary {
-  title: string;
   content: string;
 }
 
@@ -64,11 +63,12 @@ export enum ACTIONS_TYPES {
   EDIT_SUMMARY = "EDIT_SUMMARY",
   EDIT_EDUCATION = "EDIT_EDUCATION",
   EDIT_EXPERIENCE = "EDIT_EXPERIENCE",
+  RESET_RESUME = "RESET_RESUME",
 }
 
 export interface Action {
   type: ACTIONS_TYPES;
-  payload: string | Profile | EducationItem | ExperienceItem;
+  payload?: string | Profile | EducationItem | ExperienceItem;
 }
 
 export interface CVStateContextType {

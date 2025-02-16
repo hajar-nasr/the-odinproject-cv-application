@@ -7,7 +7,7 @@ const Summary = () => {
 
   return (
     <div className="resume-section">
-      <p className="section-title">{summary.title}</p>
+      <p className="section-title">Summary</p>
       <p>{summary.content}</p>
     </div>
   );
