@@ -58,6 +58,7 @@ const ActionsSidebar = () => {
           <ExperienceForm
             experience={formsState.experience}
             handleChange={handleChange}
+            setFormsState={setFormsState}
           />
 
           <EducationForm

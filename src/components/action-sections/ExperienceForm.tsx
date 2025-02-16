@@ -1,9 +1,10 @@
-import { FormEvent, useState, ChangeEvent, useId } from "react";
+import { FormEvent, useState, ChangeEvent, useId, Dispatch } from "react";
 import { useCVContext } from "../../store/hooks";
 import {
   ACTIONS_TYPES,
   ExperienceItem,
   SidebarFormChangeEventProps,
+  SidebarFormsState,
 } from "../../store/types";
 import FormContainer from "./FormContainer";
 import { EXPERIENCE_FORM_DATA } from "../../utils/constants";
@@ -11,8 +12,10 @@ import { EXPERIENCE_FORM_DATA } from "../../utils/constants";
 const ExperienceForm = ({
   experience,
   handleChange,
+  setFormsState,
 }: {
   experience: ExperienceItem;
+  setFormsState: Dispatch<React.SetStateAction<SidebarFormsState>>;
   handleChange: ({ event, sidebarFormId }: SidebarFormChangeEventProps) => void;
 }) => {
   const { dispatch } = useCVContext()!;
@@ -31,6 +34,18 @@ const ExperienceForm = ({
     dispatch({
       type: ACTIONS_TYPES.EDIT_EXPERIENCE,
       payload: { ...experience, id: experienceId },
+    });
+  };
+
+  const clearEndDate = () => {
+    setFormsState((prev) => {
+      return {
+        ...prev,
+        experience: {
+          ...prev.experience,
+          endDate: "",
+        },
+      };
     });
   };
 
@@ -68,6 +83,7 @@ const ExperienceForm = ({
             type="checkbox"
             checked={isPresent}
             onChange={(e) => {
+              clearEndDate();
               setIsPresent(e.target.checked);
             }}
             style={{ position: "absolute", opacity: 0, height: 0, width: 0 }}
