@@ -1,7 +1,7 @@
 const Header = () => {
   return (
-    <header className="header">
-      <p>Logo</p>
+    <header className="header" style={{ color: "darkslategray" }}>
+      <p>ResumeCraft</p>
     </header>
   );
 };

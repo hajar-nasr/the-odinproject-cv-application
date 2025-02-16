@@ -18,7 +18,9 @@ const Profile = () => {
         </div>
         <div className="profile-link">
           <LinkedInIcon />
-          <a href={linkedIn}>{linkedIn}</a>
+          <a href={linkedIn} target="_blank">
+            LinkedIn Profile
+          </a>
         </div>
       </div>
     </div>

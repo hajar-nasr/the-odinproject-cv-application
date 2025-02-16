@@ -17,7 +17,7 @@ export type ExperienceItem = {
   company: string;
   location: string;
   startDate: string;
-  endDate: string;
+  endDate?: string;
   description: string;
 };
 
@@ -30,7 +30,6 @@ export type EducationItem = {
   school: string;
   degree: string;
   fieldOfStudy: string;
-  graduationYear: string;
 };
 
 export interface Education {

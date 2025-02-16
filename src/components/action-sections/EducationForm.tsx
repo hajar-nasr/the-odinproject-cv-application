@@ -26,12 +26,6 @@ const FORM_DATA = [
     placeholder: "Enter your school name",
     type: "text",
   },
-  {
-    label: "Enter your graduation year",
-    name: "graduationYear",
-    placeholder: "Enter your graduation year",
-    type: "text",
-  },
 ];
 
 const EducationForm = ({
@@ -46,10 +40,7 @@ const EducationForm = ({
 
   const isSumbitEnabled = () => {
     return Boolean(
-      education.school &&
-        education.degree &&
-        education.fieldOfStudy &&
-        education.graduationYear
+      education.school && education.degree && education.fieldOfStudy
     );
   };
 

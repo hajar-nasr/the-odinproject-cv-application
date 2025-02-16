@@ -35,6 +35,12 @@ button, a {
     transition: all 0.3s ease-in-out;
 }
 
+.content {
+    height: 100dvh;
+    overflow: auto;
+    padding-bottom: 32px;
+}
+
 .flex-center {
     display: flex;
     justify-content: center;

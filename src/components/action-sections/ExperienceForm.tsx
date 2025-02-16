@@ -27,7 +27,14 @@ const FORM_DATA = [
     name: "location",
     placeholder: "City, Country",
     type: "text",
-    required: false,
+    required: true,
+  },
+  {
+    label: "Description",
+    placeholder: "Enter description",
+    name: "description",
+    type: "text",
+    required: true,
   },
   {
     label: "Start Date",

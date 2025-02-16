@@ -6,8 +6,8 @@ const Summary = () => {
   } = useCVContext()!;
 
   return (
-    <div>
-      <p>{summary.title}</p>
+    <div className="resume-section">
+      <p className="section-title">{summary.title}</p>
       <p>{summary.content}</p>
     </div>
   );
