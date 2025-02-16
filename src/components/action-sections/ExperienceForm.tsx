@@ -6,51 +6,7 @@ import {
   SidebarFormChangeEventProps,
 } from "../../store/types";
 import FormContainer from "./FormContainer";
-
-const FORM_DATA = [
-  {
-    label: "Job Title",
-    name: "title",
-    placeholder: "Enter your job title",
-    type: "text",
-    required: true,
-  },
-  {
-    label: "Company",
-    name: "company",
-    placeholder: "Enter the company name",
-    type: "text",
-    required: true,
-  },
-  {
-    label: "Location",
-    name: "location",
-    placeholder: "City, Country",
-    type: "text",
-    required: true,
-  },
-  {
-    label: "Description",
-    placeholder: "Enter description",
-    name: "description",
-    type: "text",
-    required: true,
-  },
-  {
-    label: "Start Date",
-    name: "startDate",
-    placeholder: "DD/MM/YY",
-    type: "date",
-    required: true,
-  },
-  {
-    label: "End Date",
-    name: "endDate",
-    placeholder: "DD/MM/YY",
-    type: "date",
-    required: false,
-  },
-];
+import { EXPERIENCE_FORM_DATA } from "../../utils/constants";
 
 const ExperienceForm = ({
   experience,
@@ -85,7 +41,7 @@ const ExperienceForm = ({
       isSumbitEnabled={isSumbitEnabled()}
     >
       <div>
-        {FORM_DATA.map((item) => {
+        {EXPERIENCE_FORM_DATA.map((item) => {
           if (isPresent && item.name === "endDate") return null;
 
           return (

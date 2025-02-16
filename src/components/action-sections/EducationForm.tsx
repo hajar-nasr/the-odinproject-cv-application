@@ -6,27 +6,7 @@ import {
   SidebarFormChangeEventProps,
 } from "../../store/types";
 import FormContainer from "./FormContainer";
-
-const FORM_DATA = [
-  {
-    label: "School Name",
-    name: "school",
-    placeholder: "Enter your school name",
-    type: "text",
-  },
-  {
-    label: "Degree",
-    name: "degree",
-    placeholder: "Enter your degree",
-    type: "text",
-  },
-  {
-    label: "Enter your field of study",
-    name: "fieldOfStudy",
-    placeholder: "Enter your school name",
-    type: "text",
-  },
-];
+import { EDUCATION_FORM_DATA } from "../../utils/constants";
 
 const EducationForm = ({
   education,
@@ -63,7 +43,7 @@ const EducationForm = ({
       isSumbitEnabled={isSumbitEnabled()}
     >
       <div>
-        {FORM_DATA.map((item) => {
+        {EDUCATION_FORM_DATA.map((item) => {
           return (
             <label className="form-label" key={item.name}>
               <span>{item.label}</span>

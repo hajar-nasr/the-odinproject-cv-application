@@ -6,27 +6,7 @@ import {
   SidebarFormChangeEventProps,
 } from "../../store/types";
 import FormContainer from "./FormContainer";
-
-const FORM_DATA = [
-  {
-    name: "name",
-    placeholder: "Enter your full name",
-    type: "text",
-    label: "Full name",
-  },
-  {
-    name: "email",
-    placeholder: "example@youremail.com",
-    type: "email",
-    label: "Email",
-  },
-  {
-    name: "linkedIn",
-    placeholder: "https://linkedin.com/in/account",
-    type: "text",
-    label: "LinkedIn Link",
-  },
-];
+import { PROFILE_FORM_DATA } from "../../utils/constants";
 
 const ProfileForm = ({
   profile,
@@ -57,7 +37,7 @@ const ProfileForm = ({
       isSumbitEnabled={isSumbitEnabled()}
     >
       <div>
-        {FORM_DATA.map((item) => {
+        {PROFILE_FORM_DATA.map((item) => {
           return (
             <label key={item.name} className="form-label">
               <span>{item.label}</span>
