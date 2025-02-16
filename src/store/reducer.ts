@@ -36,6 +36,24 @@ const reducer = (state: State, action: Action): State => {
           items: [...state.experience.items, action.payload as ExperienceItem],
         },
       };
+    case ACTIONS_TYPES.RESET_RESUME:
+      return {
+        profile: {
+          name: "",
+          linkedIn: "",
+          email: "",
+        },
+        education: {
+          items: [],
+        },
+        experience: {
+          items: [],
+        },
+        skills: [],
+        summary: {
+          content: "",
+        },
+      };
     default:
       return state;
   }
