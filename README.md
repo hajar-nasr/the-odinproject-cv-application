@@ -1,6 +1,6 @@
 # ResumeCraft
 
-ResumeCraft is a web application built with React, TypeScript, and Vite that allows users to create and manage resumes interactively. It provides a user-friendly interface for editing profile details, adding professional experience, education, and summarizing key skills. This project is part of [The Odin Project](https://www.theodinproject.com/) curriculum, designed to help developers build practical skills through hands-on projects.
+[ResumeCraft](https://hajar-nasr.github.io/the-odinproject-cv-application/) is a web application built with React, TypeScript, and Vite that allows users to create and manage resumes interactively. It provides a user-friendly interface for editing profile details, adding professional experience, education, and summarizing key skills. This project is part of [The Odin Project](https://www.theodinproject.com/) curriculum, designed to help developers build practical skills through hands-on projects.
 
 ## Features
 
