@@ -1,50 +1,52 @@
-# React + TypeScript + Vite
+# ResumeCraft
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ResumeCraft is a web application built with React, TypeScript, and Vite that allows users to create and manage resumes interactively. It provides a user-friendly interface for editing profile details, adding professional experience, education, and summarizing key skills. This project is part of [The Odin Project](https://www.theodinproject.com/) curriculum, designed to help developers build practical skills through hands-on projects.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Profile Management**: Add and edit personal details like name, email, and LinkedIn profile.
+- **Experience Section**: Add job experiences with details like title, company, location, and description.
+- **Education Section**: Add educational qualifications with school name, degree, and field of study.
+- **Summary Section**: Write a professional summary to highlight key skills and achievements.
+- **Live Preview**: View the resume in real-time as you make changes.
+- **Reset Options**: Reset individual forms or the entire resume to start fresh.
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **React**: For building the user interface.
+- **TypeScript**: For type safety and better developer experience.
+- **Vite**: For fast development and build tooling.
+- **FontAwesome**: For icons used in the application.
+- **React Markdown**: For rendering markdown content in the experience section.
 
-- Configure the top-level `parserOptions` property like this:
+## Live Demo
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Check out the live demo of the application [here](https://hajar-nasr.github.io/the-odinproject-cv-application/).
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Getting Started
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Prerequisites
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- Node.js (v16 or higher)
+- npm
+
+### Installation
+
+1. Clone the repository:
+
+   ```javascript
+   git clone git@github.com:hajar-nasr/the-odinproject-cv-application.git
+   cd the-odinproject-cv-application
+   ```
+
+2. Install dependencies:
+
+   ```javascript
+   npm install
+   ```
+
+3. Run it locally
+
+   ```javascript
+   npm run dev
+   ```
